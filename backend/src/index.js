@@ -1,8 +1,10 @@
 const express = require("express");
+const routes = require("./routes");
 
 const app = express();
 
 app.use(express.json());
+app.use(routes);
 
 /**
  * Tipos de parâmetros:
@@ -17,22 +19,13 @@ app.use(express.json());
 
 /**
  * Banco de Dados:
- * 
+ *
  * SQL: MySQL, SQLite, PostgreSQL, Oracle, Microsoft SQLServe
  * NoSQL: MongoDB, CouchDB, etc
- * 
+ *
  * Driver: SELECT * FROM users
  * Query Builder: table('users).select('*')
- * 
+ *
  */
- 
-app.post("/users", (request, response) => {
-  const params = request.body;
-  console.log(params);
-  return response.json({
-    event: "Semana OmniStack 11.0",
-    aluna: "Karen Gomes"
-  });
-});
 
 app.listen(3333);
